@@ -3,7 +3,7 @@ h2 {
   position: relative;
   margin-bottom: 0.2Arem;
   font-weight: bold;/*太字*/
-  font-size: 20px;/*フォントサイズ*/
+  font-size: 25px;/*フォントサイズ*/
   text-align: center;
 }
 
@@ -13,7 +13,7 @@ h2::before {
   left: 50%;/*文字左からの位置*/
   transform: translateX(-50%);
   color: #e8cec3;/*フォントカラー*/
-  font-size: 50px;/*背景フォントサイズ*/
+  font-size: 40px;/*背景フォントサイズ*/
   text-transform: uppercase;
   content: 'HAPPYBIRTHDAY';/*背景文字（★ご自由に変更ください）*/
   z-index: -1;
