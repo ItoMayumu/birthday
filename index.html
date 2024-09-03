@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            background: linear-gradient(45deg,rgb(174, 255, 236),rgb(246, 204, 237));
             color: #333;
             display: flex;
             justify-content: center;
@@ -36,7 +36,7 @@
         }
 
         button {
-            background-color: #4CAF50;
+            background-color: #dc5dff;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -61,47 +61,26 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100px;
-            height: 100px;
+            width: 480px;
+            height: 480px;
             display: none; /* 初期状態では非表示 */
         }
-        
-        .load hr {
-            border: 0;
-            margin: 0;
-            width: 40%;
-            height: 40%;
+
+        .load canvas {
+            display: block;
+        }
+
+        .load h1 {
             position: absolute;
-            border-radius: 50%;
-            animation: spin 2s ease infinite;
+            top: 0px;
+            left: 0px;
+            text-align: center;
+            width: 100%;
+            line-height: 420px;
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.24);
+            font-weight: 100;
         }
-
-        .load :first-child {
-            background: #19A68C;
-            animation-delay: -1.5s;
-        }
-
-        .load :nth-child(2) {
-            background: #F63D3A;
-            animation-delay: -1s;
-        }
-
-        .load :nth-child(3) {
-            background: #FDA543;
-            animation-delay: -0.5s;
-        }
-
-        .load :last-child {
-            background: #193B48;
-        }
-
-        @keyframes spin {
-            0%, 100% { transform: translate(0); }
-            25% { transform: translate(160%); }
-            50% { transform: translate(160%, 160%); }
-            75% { transform: translate(0, 160%); }
-        }
-
     </style>
     <script>
         function checkName() {
@@ -116,14 +95,19 @@
                 elementsToHide.forEach(element => element.style.display = 'none');
                 // ローディングアニメーションを表示
                 loadingSpinner.style.display = 'block';
-                // 5秒後にページ遷移
                 setTimeout(() => {
                     window.location.href = "timeline.html";
-                }, 5000);
+                }, 8000);
+                // Loadrアニメーションをスタート
+                startLoadr();
             } else {
                 alertMessage.style.display = 'block';
                 alertMessage.innerText = "名前が違います。正しい名前を入力してください。";
             }
+        }
+
+        function startLoadr() {
+            Loadr("loader");
         }
     </script>
 </head>
@@ -133,7 +117,10 @@
     <button class="hide-on-load" onclick="checkName()">確認</button>
     <div id="alertMessage" class="alert hide-on-load"></div>
     <div id="loadingSpinner" class="load">
-        <hr/><hr/><hr/><hr/>
+        <canvas width="480px" height="480px" id="loader"></canvas>
+        <h1>happybirthday</h1>
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
